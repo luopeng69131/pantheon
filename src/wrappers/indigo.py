@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 
 from os import path
 from subprocess import check_call
@@ -15,7 +15,7 @@ def main():
     recv_src = path.join(cc_repo, 'env', 'run_receiver.py')
 
     if args.option == 'setup':
-        check_call(['sudo pip install tensorflow==1.14.0'], shell=True)
+        check_call(['sudo python2 -m pip install tensorflow==1.14.0'], shell=True)
         return
 
     if args.option == 'sender':

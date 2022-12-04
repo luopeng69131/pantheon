@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 
 import os
 from os import path
@@ -225,7 +225,7 @@ class Test(object):
         port = utils.get_open_port()
 
         # run the side specified by self.run_first
-        cmd = ['python', self.cc_src, self.run_first, port]
+        cmd = ['python2', self.cc_src, self.run_first, port]
         sys.stderr.write('Running %s %s...\n' % (self.cc, self.run_first))
         self.proc_first = Popen(cmd, preexec_fn=os.setsid)
 
@@ -235,7 +235,7 @@ class Test(object):
 
         self.test_start_time = utils.utc_time()
         # run the other side specified by self.run_second
-        sh_cmd = 'python %s %s $MAHIMAHI_BASE %s' % (
+        sh_cmd = 'python2 %s %s $MAHIMAHI_BASE %s' % (
             self.cc_src, self.run_second, port)
         sh_cmd = ' '.join(self.mm_cmd) + " -- sh -c '%s'" % sh_cmd
         sys.stderr.write('Running %s %s...\n' % (self.cc, self.run_second))
@@ -261,12 +261,12 @@ class Test(object):
         # run tunnel server manager
         if self.mode == 'remote':
             if self.server_side == 'local':
-                ts_manager_cmd = ['python', self.tunnel_manager]
+                ts_manager_cmd = ['python2', self.tunnel_manager]
             else:
                 ts_manager_cmd = self.r['ssh_cmd'] + [
-                    'python', self.r['tunnel_manager']]
+                    'python2', self.r['tunnel_manager']]
         else:
-            ts_manager_cmd = ['python', self.tunnel_manager]
+            ts_manager_cmd = ['python2', self.tunnel_manager]
 
         sys.stderr.write('[tunnel server manager (tsm)] ')
         self.ts_manager = Popen(ts_manager_cmd, stdin=PIPE, stdout=PIPE,
@@ -286,11 +286,11 @@ class Test(object):
         if self.mode == 'remote':
             if self.server_side == 'local':
                 tc_manager_cmd = self.r['ssh_cmd'] + [
-                    'python', self.r['tunnel_manager']]
+                    'python2', self.r['tunnel_manager']]
             else:
-                tc_manager_cmd = ['python', self.tunnel_manager]
+                tc_manager_cmd = ['python2', self.tunnel_manager]
         else:
-            tc_manager_cmd = self.mm_cmd + ['python', self.tunnel_manager]
+            tc_manager_cmd = self.mm_cmd + ['python2', self.tunnel_manager]
 
         sys.stderr.write('[tunnel client manager (tcm)] ')
         self.tc_manager = Popen(tc_manager_cmd, stdin=PIPE, stdout=PIPE,
@@ -422,9 +422,9 @@ class Test(object):
 
             port = utils.get_open_port()
 
-            first_cmd = 'tunnel %s python %s receiver %s\n' % (
+            first_cmd = 'tunnel %s python2 %s receiver %s\n' % (
                 tun_id, first_src, port)
-            second_cmd = 'tunnel %s python %s sender %s %s\n' % (
+            second_cmd = 'tunnel %s python2 %s sender %s %s\n' % (
                 tun_id, second_src, recv_pri_ip, port)
 
             recv_manager.stdin.write(first_cmd)
@@ -438,9 +438,9 @@ class Test(object):
 
             port = utils.get_open_port()
 
-            first_cmd = 'tunnel %s python %s sender %s\n' % (
+            first_cmd = 'tunnel %s python2 %s sender %s\n' % (
                 tun_id, first_src, port)
-            second_cmd = 'tunnel %s python %s receiver %s %s\n' % (
+            second_cmd = 'tunnel %s python2 %s receiver %s %s\n' % (
                 tun_id, second_src, send_pri_ip, port)
 
             send_manager.stdin.write(first_cmd)
@@ -463,9 +463,9 @@ class Test(object):
 
                 port = utils.get_open_port()
 
-                first_cmd = 'tunnel %s python %s receiver %s\n' % (
+                first_cmd = 'tunnel %s python2 %s receiver %s\n' % (
                     tun_id, first_src, port)
-                second_cmd = 'tunnel %s python %s sender %s %s\n' % (
+                second_cmd = 'tunnel %s python2 %s sender %s %s\n' % (
                     tun_id, second_src, recv_pri_ip, port)
 
                 recv_manager.stdin.write(first_cmd)
@@ -479,9 +479,9 @@ class Test(object):
 
                 port = utils.get_open_port()
 
-                first_cmd = 'tunnel %s python %s sender %s\n' % (
+                first_cmd = 'tunnel %s python2 %s sender %s\n' % (
                     tun_id, first_src, port)
-                second_cmd = 'tunnel %s python %s receiver %s %s\n' % (
+                second_cmd = 'tunnel %s python2 %s receiver %s %s\n' % (
                     tun_id, second_src, send_pri_ip, port)
 
                 send_manager.stdin.write(first_cmd)
@@ -792,12 +792,12 @@ def pkill(args):
         r = utils.parse_remote_path(args.remote_path)
         remote_pkill_src = path.join(r['base_dir'], 'tools', 'pkill.py')
 
-        cmd = r['ssh_cmd'] + ['python', remote_pkill_src,
+        cmd = r['ssh_cmd'] + ['python2', remote_pkill_src,
                               '--kill-dir', r['base_dir']]
         call(cmd)
 
     pkill_src = path.join(context.base_dir, 'tools', 'pkill.py')
-    cmd = ['python', pkill_src, '--kill-dir', context.src_dir]
+    cmd = ['python2', pkill_src, '--kill-dir', context.src_dir]
     call(cmd)
 
 

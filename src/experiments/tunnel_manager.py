@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 
 import os
 from os import path
@@ -63,7 +63,7 @@ def main():
 
                 procs[tun_id] = Popen(cmd_to_run, stdin=PIPE,
                                       stdout=PIPE, preexec_fn=os.setsid)
-            elif cmd[2] == 'python':  # run python scripts inside tunnel
+            elif 'python' in cmd[2]:  # run python scripts inside tunnel
                 if tun_id not in procs:
                     sys.stderr.write(
                         'error: run tunnel client or server first\n')
