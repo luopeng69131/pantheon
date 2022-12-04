@@ -15,8 +15,8 @@ def setup_bbr():
     kernel_ctl.enable_congestion_control('bbr')
 
     # check if qdisc is fq
-    kernel_ctl.check_qdisc('fq')
-
+    #kernel_ctl.check_qdisc('fq')
+    kernel_ctl.set_qdisc('fq')
 
 def main():
     args = arg_parser.receiver_first()
