@@ -1,0 +1,5 @@
+之前：
+去除proto quic； bbr setup 改为set fq； python 改为python2
+
+2022.12.5
+解决indigo pip tensorflow 的依赖问题; 调试gitsummary中必须status一致的问题
