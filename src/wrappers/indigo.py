@@ -15,7 +15,7 @@ def main():
     recv_src = path.join(cc_repo, 'env', 'run_receiver.py')
 
     if args.option == 'setup':
-        check_call(['sudo python2 -m pip install tensorflow==1.14.0'], shell=True)
+        check_call(['sudo python2 -m pip install protobuf==3.17.3 tensorflow==1.14.0'], shell=True)
         return
 
     if args.option == 'sender':
