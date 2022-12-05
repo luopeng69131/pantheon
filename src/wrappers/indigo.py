@@ -19,12 +19,12 @@ def main():
         return
 
     if args.option == 'sender':
-        cmd = [send_src, args.port]
+        cmd = ['python2', send_src, args.port]
         check_call(cmd)
         return
 
     if args.option == 'receiver':
-        cmd = [recv_src, args.ip, args.port]
+        cmd = ['python2', recv_src, args.ip, args.port]
         check_call(cmd)
         return
 
