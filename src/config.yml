@@ -7,6 +7,10 @@ schemes:
     name: TCP Vegas
     color: silver
     marker: 'h'
+  westwood:
+    name: TCP Westwood
+    color: brown
+    marker: 'v'
   bbr:
     name: TCP BBR
     color: gold
@@ -35,10 +39,6 @@ schemes:
     name: SCReAM
     color: pink
     marker: '1'
-  webrtc:
-    name: WebRTC media
-    color: brown
-    marker: 'v'
   copa:
     name: Copa
     color: red
