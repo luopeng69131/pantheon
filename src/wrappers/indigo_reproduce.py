@@ -10,14 +10,14 @@ import context
 def main():
     args = arg_parser.sender_first()
 
-    cc_repo = path.join(context.third_party_dir, 'ppo_cwnd_switch')
-    send_src = path.join(cc_repo, 'a2c_ppo_ackt/game/indigo_env/dagger/run_sender.py')
-    recv_src = path.join(cc_repo, 'a2c_ppo_ackt/game/indigo_env/env/run_receiver.py')
+    cc_repo = path.join(context.third_party_dir, 'indigo_reproduce')
+    send_src = path.join(cc_repo, 'a2c_ppo_acktr/game/indigo_env/dagger/run_sender.py')
+    recv_src = path.join(cc_repo, 'a2c_ppo_acktr/game/indigo_env/env/run_receiver.py')
     
     
     requirments_path = path.join(cc_repo, 'requirements.txt')
     if args.option == 'setup':
-        check_call(['sudo python3 -m pip install -r %s' % requirments_path], shell=True)
+        check_call(['pip3 install -r %s' % requirments_path], shell=True)
         return
 
     if args.option == 'sender':
@@ -26,7 +26,7 @@ def main():
         return
 
     if args.option == 'receiver':
-        cmd = ['python3', recv_src, args.ip, args.port, -1, 0]
+        cmd = ['python3', recv_src, args.ip, args.port, '-1', '0']
         check_call(cmd)
         return
 

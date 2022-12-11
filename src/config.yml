@@ -31,8 +31,8 @@ schemes:
     name: Sprout
     color: orange
     marker: 'p'
-  quic:
-    name: QUIC Cubic
+  indigo_reproduce:
+    name: Ind_repro
     color: magenta
     marker: '8'
   scream:
