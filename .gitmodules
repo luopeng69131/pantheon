@@ -53,5 +53,6 @@
 [submodule "third_party/indigo_reproduce"]
 	path = third_party/indigo_reproduce
 	url = git@github.com:luopeng69131/ppo-cwnd-switch.git
+        branch = indigo_reproduce
         ignore = dirty
 
