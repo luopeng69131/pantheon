@@ -55,4 +55,8 @@
 	url = git@github.com:luopeng69131/ppo-cwnd-switch.git
         branch = indigo_reproduce
         ignore = dirty
+[submodule "third_party/gail"]
+	path = third_party/gail
+	url = git@github.com:luopeng69131/CC_stable_gym.git
+        ignore = dirty
 

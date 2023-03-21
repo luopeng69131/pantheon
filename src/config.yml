@@ -67,3 +67,7 @@ schemes:
     name: FillP-Sheep
     color: violet
     marker: 'D'
+  gail:
+    name: IRL-gail
+    color: violet
+    marker: '$'
