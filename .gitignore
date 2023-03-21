@@ -4,6 +4,7 @@
 *.pdf
 /tmp/
 /data/
+runs/
 
 ##### Python
 

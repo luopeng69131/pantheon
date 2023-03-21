@@ -58,5 +58,5 @@
 [submodule "third_party/gail"]
 	path = third_party/gail
 	url = git@github.com:luopeng69131/CC_stable_gym.git
+	branch = ex_reward_net_state
         ignore = dirty
-

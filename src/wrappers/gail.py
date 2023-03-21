@@ -14,7 +14,6 @@ def main():
     send_src = path.join(cc_repo, 'run_sender.py')
     recv_src = path.join(cc_repo, 'stable_custom/stable_env/indigo_env/env/run_receiver.py')
     
-    
     requirments_path = path.join(cc_repo, 'requirements.txt')
     if args.option == 'setup':
         check_call(['pip3 install -r %s' % requirments_path], shell=True)
@@ -26,7 +25,7 @@ def main():
         return
 
     if args.option == 'receiver':
-        cmd = ['python3', recv_src, args.ip, args.port, '-1', '0']
+        cmd = ['python3', recv_src, args.ip, args.port, '-1', '0', '0']
         check_call(cmd)
         return
 
