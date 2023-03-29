@@ -27,7 +27,7 @@ def main():
         return
 
     if args.option == 'receiver':
-        cmd = ['python3', recv_src, args.ip, args.port, '-1', '0']
+        cmd = ['python2', recv_src, args.ip, args.port, '-1', '0']
         check_call(cmd, env=os.environ)
         return
 

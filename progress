@@ -10,3 +10,6 @@ gail model运行在conda py38环境，对应其项目的requirments；
 gail的setup --setup 可兼容indigo_reproduce，也就是说在py38 conda env上可运行indigo_reproduce;
 !!! 但是切记不要在 py38 环境下 setup --setup indigo_reproduce，否则indigo_reproduce的一些pip包会覆盖gail的pip；
 无--setup参数的setup不会有影响，因为无参数运行会运行wrapper/CC.py 脚本下的setup_reboot操作，该操作一般是安装bbr等内核算法，要求输入sudo密码
+
+2023.3.29
+正在修复indigo_reproduce和gail 远程启动将receiver时无法利用conda python，将receiver(远端)改用py2启动；
