@@ -26,8 +26,9 @@ mkdir ${final_ST_report_dir}
 
 for i in {0..1}; do 
     data_dir_scenario_dir=${data_dir}/scenario_ST${i}
+    cp ${data_dir_scenario_dir}/pantheon_metadata_full_CC.json ${data_dir_scenario_dir}/pantheon_metadata.json
     
     ${analysis_dir} --data-dir ${data_dir_scenario_dir}
-    mv ${data_dir_scenario_dir}/pantheon_report.pdf  ${data_dir_scenario_dir}/ST${i}_report_gail_0327_23.pdf
-    mv ${data_dir_scenario_dir}/ST${i}_report_gail_0327_23.pdf ${final_ST_report_dir}
+    mv ${data_dir_scenario_dir}/pantheon_report.pdf  ${data_dir_scenario_dir}/ST${i}_report_gail_03271213_23.pdf
+    mv ${data_dir_scenario_dir}/ST${i}_report_gail_03271213_23.pdf ${final_ST_report_dir}
 done

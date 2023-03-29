@@ -6,6 +6,7 @@ from subprocess import check_call
 import arg_parser
 import context
 
+import os
 
 def main():
     args = arg_parser.sender_first()
@@ -26,7 +27,7 @@ def main():
 
     if args.option == 'receiver':
         cmd = ['python3', recv_src, args.ip, args.port, '-1', '0', '0']
-        check_call(cmd)
+        check_call(cmd, env=os.environ)
         return
 
 
