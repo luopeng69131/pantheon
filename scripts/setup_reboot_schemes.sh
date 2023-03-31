@@ -4,13 +4,17 @@
 # bash ***.sh > ***_${date}.log
 #==================================================================================
 
+sudo sysctl -w net.ipv4.ip_forward=1
+
 SETUP=true
 
 #===================================================================================
+
+
 run_count=1
 
-#CC_SCHEMES="bbr copa cubic fillp indigo ledbat pcc sprout taova vegas verus vivace westwood indigo_reproduce gail"
-CC_SCHEMES="cubic indigo pcc gail"
+CC_SCHEMES="bbr copa cubic fillp indigo ledbat pcc sprout taova vegas verus vivace westwood indigo_reproduce gail"
+#CC_SCHEMES="bbr indigo indigo_reproduce gail"
 
 remote_addr="luopeng@106.12.143.4"
 pantheon_dir="/home/luopeng/content/pantheon/pantheon"
@@ -37,12 +41,7 @@ fi
 
 echo "=========================================================>running"
 
-${run_test_dir} remote \
---schemes "${CC_SCHEMES}" \
---run-times ${run_count} --data-dir ${data_dir}/test_remote_all \
-${remote_addr}:${pantheon_dir}
 
-${analysis_dir} --data-dir ${data_dir}/test_remote_all/
 
 
 
